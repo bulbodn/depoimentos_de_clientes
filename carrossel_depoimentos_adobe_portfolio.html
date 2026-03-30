@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carrossel de Depoimentos</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #2a2626;
+      --muted: #514b4b;
+      --accent: #2a2626;
+      --max: 980px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+
+    .shell {
+      width: 100%;
+      height: 420px; /* altura fixa ideal para iframe */
+      display: grid;
+      place-items: center;
+      padding: 0 24px;
+    }
+
+    .carousel {
+      width: min(var(--max), 100%);
+      display: grid;
+      grid-template-columns: 60px 1fr 60px;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--accent);
+      width: 60px;
+      height: 60px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      opacity: .7;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+
+    .nav:hover { opacity: 1; transform: translateY(-1px); }
+
+    .nav svg { width: 22px; height: 22px; stroke-width: 1.5; }
+
+    .viewport {
+      overflow: hidden;
+    }
+
+    .track {
+      display: flex;
+      transition: transform .5s ease;
+    }
+
+    .slide {
+      min-width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .content {
+      max-width: 720px;
+    }
+
+    .quote {
+      margin: 0;
+      font-size: 26px;
+      line-height: 1.5;
+      letter-spacing: -0.02em;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .meta {
+      margin-top: 22px;
+    }
+
+    .name {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .company {
+      margin: 4px 0 0;
+      font-size: 16px;
+      color: var(--text);
+    }
+
+    @media (max-width: 768px) {
+      .shell { height: 360px; }
+      .quote { font-size: 20px; }
+      .name { font-size: 16px; }
+      .company { font-size: 14px; }
+      .carousel { grid-template-columns: 40px 1fr 40px; }
+    }
+
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="carousel">
+      <button class="nav prev" type="button">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="viewport">
+        <div class="track" id="track">
+          <div class="slide">
+            <div class="content">
+              <p class="quote">“A confiança, seriedade, conhecimento técnico, leveza em trabalharmos juntos e o comprometimento com o resultado foi o que me fizeram escolher a Bulbo e é o que me faz indica-la. O compromisso em entregar um trabalho de qualidade superou nossas expectativas.  Tivemos um excelente impacto nos clientes com a nova logo e com o slogan. Trouxe uma cara nova para empresa nos colocando em evidência.”</p>
+              <div class="meta">
+                <p class="name">Marcio Dal Posso</p>
+                <p class="company">Dal Posso Imóveis</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide">
+            <div class="content">
+              <p class="quote">
+“A Bulbo conseguiu personificar a minha história com a odontologia, mostrando no meu projeto as minhas aptidões e também todo o carinho que tenho e desejo passar para os meus pacientes! Sou apaixonada pela minha marca e minha identidade visual e grata por todo o trabalho planejado e desenvolvido pelo João e pela Mariana, que são profissionais maravilhosos.”</p>
+              <div class="meta">
+                <p class="name">Kamila Schepanski Silva</p>
+                <p class="company">Dra Kamila Schepanski Cirurgiã Dentista</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide">
+            <div class="content">
+              <p class="quote">“O trabalho com a Bulbo foi além do que eu sonhei. Desde a primeira reunião me impressionou o fato deles anotarem tudo o que eu falava, minhas ideias e vontades. Eles conseguiram traduzir sentimentos em palavras e imagens, no símbolo que foi criado especialmente pra mim. Na hora em que eu vi o resultado, cheguei a me emocionar. Me vi representada e respeitada, parece que o que eu nem sabia descrever estava ali na minha frente. Antes eu tinha até vergonha em divulgar meu trabalho por não ter uma identidade visual profissional, hoje, tudo o que eu faço na minha clínica, eu coloco a marca em evidência. Recomendo a Bulbo de olhos fechados!”</p>
+              <div class="meta">
+                <p class="name">Grace Kelly</p>
+                <p class="company">Grace Kelly Estética Integrativa</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide">
+            <div class="content">
+              <p class="quote">"A Bulbo nos ajudou do início ao fim e continuam dando suporte sempre que precisamos. Escolhemos eles porque sabíamos da competência, eles foram compreensivos e nos explicaram cada passo do processo nos ajudando a enxergar com clareza tudo o que estava sendo feito. Com criatividade, nos ajudaram desde a escolha de um nome pro nosso negócio e toda a identidade visual. Nos sentimos seguros e totalmente satisfeitos. Obrigada Bulbo!"</p>
+              <div class="meta">
+                <p class="name">Rafaela e Thiago Ichikawa</p>
+                <p class="company">Cross Kawa</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="nav next" type="button">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </section>
+  </main>
+
+  <script>
+    const track = document.getElementById('track');
+    const slides = track.children.length;
+    let index = 0;
+
+    function update() {
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    document.querySelector('.next').onclick = () => {
+      index = (index + 1) % slides;
+      update();
+    };
+
+    document.querySelector('.prev').onclick = () => {
+      index = (index - 1 + slides) % slides;
+      update();
+    };
+
+    setInterval(() => {
+      index = (index + 1) % slides;
+      update();
+    }, 5000);
+  </script>
+</body>
+</html>
